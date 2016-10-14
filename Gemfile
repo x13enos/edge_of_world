@@ -11,11 +11,15 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass'
-gem 'devise'
+gem 'pg'
 gem 'high_voltage'
 gem 'kaminari'
-gem 'pg'
 gem 'simple_form'
+
+#authorization
+gem 'devise'
+gem 'devise_token_auth'
+
 
 group :development do
   gem 'web-console'
