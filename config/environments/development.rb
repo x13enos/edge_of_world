@@ -61,4 +61,24 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  class Swagger::Docs::Config
+    def self.base_api_controller; ActionController::API  end
+  end
+
+  Swagger::Docs::Config.register_apis({
+    "1.0" => {
+      :api_extension_type => :json,
+      :api_file_path => "public/",
+      :base_path => "http://localhost:5000/",
+      :clean_directory => false,
+      :attributes => {
+        :info => {
+          "title" => "Edge Of World",
+          "description" => "Survival game",
+          "contact" => "x3enos@gmail.com",
+        }
+      }
+    }
+  })
 end

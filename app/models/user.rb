@@ -5,12 +5,4 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
-  enum role: [:user, :admin]
-
-  after_initialize :set_default_role, :if => :new_record?
-
-  def set_default_role
-    self.role ||= :user
-  end
-
 end
