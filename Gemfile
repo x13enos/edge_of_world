@@ -28,7 +28,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
-  gem 'swagger-docs'
+  gem 'swagger-blocks'
 end
 
 group :development, :test do

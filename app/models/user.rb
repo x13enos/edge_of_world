@@ -4,5 +4,6 @@ class User < ApplicationRecord
           :recoverable, :rememberable, :trackable, :validatable
 
   include DeviseTokenAuth::Concerns::User
+  include Models::UserDocumentation
 
 end

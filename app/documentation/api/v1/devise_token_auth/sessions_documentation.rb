@@ -1,14 +1,33 @@
 module Api::V1::DeviseTokenAuth::SessionsDocumentation
   extend ActiveSupport::Concern
+  include Swagger::Blocks
 
   included do
-    swagger_controller :sessions, "User Sessions"
+    swagger_path '/auth/sign_in' do
+      operation :post do
+        key :description, 'Login user into the system'
+        key :tags, [
+          'users'
+        ]
 
-    swagger_api :create do
-      summary "User Registration"
-      param :form, :email, :string, :required, "Email"
-      param :form, :password, :string, :required, "Password"
-      response 401, "User wasn't authorized"
+        parameter do
+          key :name, :user
+          key :in, :body
+          key :description, 'Sign in operation'
+          key :required, true
+          schema do
+            key :'$ref', :UserInput
+          end
+        end
+
+        response 200 do
+          key :description, 'Success'
+        end
+
+        response 401 do
+          key :description, "User wasn't authorized"
+        end
+      end
     end
 
   end
