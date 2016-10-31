@@ -12,27 +12,4 @@ module Models::UserDocumentation
       key :type, :string
     end
   end
-
-  swagger_schema :UserCreateInput do
-    allOf do
-      schema do
-        key :'$ref', :User
-      end
-      schema do
-        key :required, [:email, :password, :password_confirmation]
-      end
-    end
-  end
-
-  swagger_schema :UserSignInInput do
-    allOf do
-      schema do
-        key :'$ref', :User
-      end
-      schema do
-        key :required, [:email, :password]
-      end
-    end
-  end
-
 end

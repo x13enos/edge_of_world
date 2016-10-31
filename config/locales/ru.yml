@@ -1,0 +1,6 @@
+ru:
+  models:
+    users:
+      validations:
+        base:
+          just_one_character: "У вас может быть, только один активный персонаж"

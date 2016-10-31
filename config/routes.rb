@@ -7,6 +7,8 @@ Rails.application.routes.draw do
         :registrations => 'api/v1/devise_token_auth/registrations',
         :sessions      => 'api/v1/devise_token_auth/sessions'
       }
+
+      resources :characters, :only => :create
     end
   end
 end
