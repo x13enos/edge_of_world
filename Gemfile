@@ -6,6 +6,8 @@ gem 'puma', '~> 3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'pg'
+gem 'rack-cors', :require => 'rack/cors'
+
 
 #authorization
 gem 'devise'
@@ -26,6 +28,7 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem 'spring-commands-rspec'
+  gem 'swagger-blocks'
 end
 
 group :development, :test do

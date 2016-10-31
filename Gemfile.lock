@@ -167,6 +167,7 @@ GEM
       pry
     puma (3.6.0)
     rack (2.0.1)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.0.1)
@@ -265,6 +266,7 @@ GEM
     sqlite3 (1.3.12)
     sqlite3-ruby (1.3.3)
       sqlite3 (>= 1.3.3)
+    swagger-blocks (1.3.4)
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -311,6 +313,7 @@ DEPENDENCIES
   pry-rails
   pry-rescue
   puma (~> 3.0)
+  rack-cors
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_layout
   rb-fchange
@@ -323,6 +326,7 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
+  swagger-blocks
   thin
   tzinfo-data
   unicorn
