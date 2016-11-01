@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :character do
-    user_id 1
     active false
+    association :user, factory: :user
   end
 end

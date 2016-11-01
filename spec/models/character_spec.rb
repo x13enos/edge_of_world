@@ -8,18 +8,17 @@ RSpec.describe Character, type: :model do
     describe "only_one_active_character" do
       let(:user) { create(:user) }
 
-      it 'should return error' do
+      it 'should return number of errors by :base key eq 1' do
         create(:character, :user_id => user.id, :active => true)
-        allow(I18n).to receive(:t).with('models.users.validations.base.just_one_character') { 'error' }
         character = build(:character, :user_id => user.id)
         character.valid?
-        expect(character.errors[:base]).to eq(['error'])
+        expect(character.errors[:base].count).to eq(1)
       end
 
-      it 'should return error' do
+      it 'should return number of errors by :base key eq 0' do
         character = build(:character, :user_id => user.id)
         character.valid?
-        expect(character.errors[:base]).to be_empty
+        expect(character.errors[:base].count).to eq(0)
       end
     end
   end

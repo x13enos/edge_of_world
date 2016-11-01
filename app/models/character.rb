@@ -6,8 +6,8 @@ class Character < ApplicationRecord
   private
 
   def only_one_active_character
-    if user.character
-        errors.add(:base, I18n.t('models.users.validations.base.just_one_character'))
+    if user.active_character
+        errors.add(:base, :just_one_active_character)
     end
   end
 end

@@ -9,15 +9,12 @@ class User < ApplicationRecord
   include Models::UserDocumentation
 
   # Associations(priority - belongs_to, has_one, has_many, HABTM)
+  has_one :active_character, -> { where(:active => true) }, :class_name => 'Character'
   has_many :characters
 
   # Validations
 
   # Scopes
-
-  def character
-    characters.find_by_active(true)
-  end
 
   private
 

@@ -1,6 +1,8 @@
 en:
-  models:
-    users:
-      validations:
-        base:
-          just_one_character: "You could have only one active character"
+  activerecord:
+    errors:
+      models:
+        character:
+          attributes:
+            base:
+              just_one_active_character: "You could have only one active character"
