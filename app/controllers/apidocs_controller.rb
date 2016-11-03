@@ -15,7 +15,7 @@ class ApidocsController < ActionController::API
       end
     end
     key :host, 'localhost:5000'
-    key :basePath, '/api/v1'
+    key :basePath, '/v1'
     key :consumes, ['application/json']
     key :produces, ['application/json']
   end
@@ -24,6 +24,7 @@ class ApidocsController < ActionController::API
   SWAGGERED_CLASSES = [
     Api::V1::DeviseTokenAuth::RegistrationsController,
     Api::V1::DeviseTokenAuth::SessionsController,
+    Api::V1::CharactersController,
     User,
     self,
   ].freeze

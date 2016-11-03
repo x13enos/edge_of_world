@@ -1,0 +1,8 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        character:
+          attributes:
+            base:
+              just_one_active_character: "У вас может быть только один активный персонаж"

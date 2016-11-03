@@ -5,20 +5,13 @@ module Api::V1::DeviseTokenAuth::SessionsDocumentation
   included do
     swagger_path '/auth/sign_in' do
       operation :post do
-        key :description, 'Login user into the system'
+        key :description, 'Login user into the app'
         key :tags, [
           'users'
         ]
 
-        parameter do
-          key :name, :user
-          key :in, :body
-          key :description, 'Sign in operation'
-          key :required, true
-          schema do
-            key :'$ref', :UserInput
-          end
-        end
+        parameter :name => :email, :in => :query, :description => 'Email', :required => true
+        parameter :name => :password, :in => :query, :description => 'Password', :required => true
 
         response 200 do
           key :description, 'Success'

@@ -1,6 +1,7 @@
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
+require 'database_cleaner'
 # require 'webmock/rspec'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
@@ -16,6 +17,13 @@ RSpec.configure do |config|
   config.formatter = 'NyanCatFormatter'
   config.include FactoryGirl::Syntax::Methods
   config.extend ControllerMacros, :type => :controller
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
 
 FactoryGirl::SyntaxRunner.class_eval do

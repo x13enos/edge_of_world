@@ -11,15 +11,9 @@ module Api::V1::DeviseTokenAuth::RegistrationsDocumentation
           'users'
         ]
 
-        parameter do
-          key :name, :user
-          key :in, :body
-          key :description, 'Add user to the store'
-          key :required, true
-          schema do
-            key :'$ref', :UserInput
-          end
-        end
+        parameter :name => :email, :in => :query, :description => 'Email', :required => true
+        parameter :name => :password, :in => :query, :description => 'Password', :required => true
+        parameter :name => :password_confirmation, :in => :query, :description => 'Password Confirmation', :required => true
 
         response 200 do
           key :description, 'Success'
