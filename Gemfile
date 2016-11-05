@@ -54,4 +54,5 @@ group :test do
   gem "nyan-cat-formatter"
   gem 'simplecov', :require=>false
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'ci_reporter_rspec'
 end

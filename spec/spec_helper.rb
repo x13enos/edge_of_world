@@ -14,7 +14,7 @@ RSpec.configure do |config|
 
   config.order = "random"
   config.color = true
-  config.formatter = 'NyanCatFormatter'
+  config.formatter = ENV['GENERATE_REPORTS'] == 'true' ? 'documentation' : 'NyanCatFormatter'
   config.include FactoryGirl::Syntax::Methods
   config.extend ControllerMacros, :type => :controller
 end
