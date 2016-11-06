@@ -5,21 +5,16 @@ describe Api::V1::CharactersController, :type => :controller do
   describe 'POST create' do
     login_user
 
-    it 'should return success' do
-      post 'create'
-      expect(response).to be_success
-    end
-
     context "when character created" do
       before do
-        @character = double
-        allow(@logged_in_user).to receive(:characters) { double(:build => @character) }
-        allow(@character).to receive(:save) { true }
+        builder = double(:character => 'character')
+        allow(Game::Characters::Creating).to receive(:new).with(@logged_in_user) { builder }
+        allow(builder).to receive(:perform) { true }
         post 'create'
       end
 
       it 'should return json stats' do
-        expect(response.body).to eq({ :character => @character }.to_json)
+        expect(response.body).to eq({ :character => 'character' }.to_json)
       end
 
       it 'should return success code' do
@@ -30,9 +25,9 @@ describe Api::V1::CharactersController, :type => :controller do
 
     context "when character didn't create" do
       before do
-        character = double(:errors => 'errors')
-        allow(@logged_in_user).to receive(:characters) { double(:build => character) }
-        allow(character).to receive(:save) { false }
+        builder = double(:errors => 'errors')
+        allow(Game::Characters::Creating).to receive(:new).with(@logged_in_user) { builder }
+        allow(builder).to receive(:perform) { false }
         post 'create'
       end
 

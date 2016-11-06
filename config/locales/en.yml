@@ -1,8 +1,8 @@
 en:
-  activerecord:
+  activemodel:
     errors:
       models:
-        character:
+        'game/characters/creating':
           attributes:
             base:
               just_one_active_character: "You could have only one active character"
